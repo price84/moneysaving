@@ -1,0 +1,108 @@
+<footer>
+    <div class="row">
+        <div class="medium-12 large-8 large-push-4 column">
+            <div class="row">
+                <div class="medium-6 column newsletter">
+                    <h5>
+                        Sign Up For Our Newsletter
+                    </h5>
+                    <form class="newsletter" action="" method="post" accept-charset="utf-8">
+                        <div class="row collapse">
+                            <div class="row collapse postfix-radius">
+                                <div class="small-10 column">
+                                    <input type="text" placeholder="Enter your email address" required="required" />
+                                </div>
+                                <div class="small-2 medium-2 column end">
+                                    <input type="submit" class="postfix button" value="&#9658;" />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="medium-6 column connect">
+                    <h5>
+                        Connect with us
+                    </h5>
+                    <ul class="small-block-grid-4 social-circles">
+                        <li>
+                            <a href="https://www.facebook.com/pages/Moneysavingnews/351084198414165" class="facebook" title="Connect with us on Facebook" rel="external"></a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/moneysavingnews/" class="instagram" title="Connect with us on Instagram" rel="external"></a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/moneysavingnews" class="twitter" title="Connect with us on Twitter" rel="external"></a>
+                        </li>
+                        <li>
+                            <a href="https://www.pinterest.com/moneysavingnews/" class="pinterest" title="Connect with us on Pinterest" rel="external"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 column categories">
+                    <h5>
+                        Categories
+                    </h5>
+                    <?php echo $this->partial('layout/categories', ['listClasses' => 'small-block-grid-2 medium-block-grid-4']); ?>
+                </div>
+            </div>
+        </div>
+        <div class="medium-12 large-4 large-pull-8 column popular">
+            <h5>
+                Popular Articles
+            </h5>
+            <ul>
+            <?php
+                foreach($this->articles()->getRandomArticles(4) as $url => $article):
+                    echo '<li>
+                            <a href="' . $this->url('root/article', ['article' => $url]) . '" title="'. $article['linkText'] .'">
+                                ' . $article['linkText'] . '
+                            </a>
+                        </li>';
+                endforeach;
+            ?>
+            </ul>
+        </div>
+    </div>
+    <div class="company-info">
+        <div class="row">
+            <div class="small-12 column">
+                 <p>
+                    Moneysavingnews.com is a trading name of Live Life Protected Ltd who are authorised and regulated by the Financial Conduct Authority. You can look us up on the <a href="http://www.fsa.gov.uk/register/home.do" rel="external">Financial Services Register</a> under Firm Registration Number: 441774. Business and registered office is: 9 Funtley Court, Funtley Hill, Fareham, Hampshire, PO16 7UY, UK. The company is registered in England under CRN: 04906681
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <div class="row">
+            <p class="small-12 medium-6 large-4 column">
+                &copy; <?php echo date('Y'); ?> moneysavingnews.com. All rights reserved.
+            </p>
+            <div class="small-12 medium-6 large-8 column">
+                <ul class="inline-list">
+                    <li>
+                        <a href="<?php echo $this->url('root/terms-and-conditions'); ?>" title="Terms &amp; Conditions">
+                            Terms &amp; Conditions
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->url('root/privacy-policy'); ?>" title="Privacy Policy">
+                            Privacy Policy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->url('root/privacy-policy', [], ['fragment' => 'cookies']); ?>" title="Cookies">
+                            Cookies
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo $this->url('root/contact'); ?>" title="Contact">
+                            Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

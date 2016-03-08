@@ -1,0 +1,84 @@
+<?php //if ($this->edDevelopment()->isDev()): ?>
+<?php
+    // Set the error layout
+    $this->layout('layout/layout');
+?>
+<main class="article">
+    <div class="row">
+        <div id="developers" class="article-content small-12 column">
+            <h1>
+                Oops! Something went wrong
+            </h1>
+            <p>
+                There seems to have been a problem with our website.
+            </p>
+            <p>
+                <a href="<?php echo $this->url('root'); ?>">&laquo; Go back to our homepage</a>
+            </p>
+
+        <?php if ($this->edDevelopment()->isDev()): ?>
+            <h2 class="subheader">Here&rsquo;s some handy info for the developers:</h2>
+            <dl>
+                <dt>Error:</dt>
+                <dd><?php echo $this->message ?></dd>
+            </dl>
+
+            <?php if (isset($this->display_exceptions) && $this->display_exceptions): ?>
+
+                <?php if (isset($this->exception) && $this->exception instanceof Exception): ?>
+
+                    <h2>Additional information:</h2>
+
+                    <dl>
+                        <dt>Exception:</dt>
+                        <dd><?php echo get_class($this->exception); ?></dd>
+
+                        <dt>File:</dt>
+                        <dd><?php echo $this->exception->getFile() ?>:<?php echo $this->exception->getLine() ?></dd>
+
+                        <dt>Message:</dt>
+                        <dd><?php echo $this->exception->getMessage() ?></dd>
+
+                        <dt>Stack trace:</dt>
+                        <dd><pre><?php echo $this->exception->getTraceAsString() ?></pre></dd>
+                    </dl>
+
+                    <?php $e = $this->exception->getPrevious(); ?>
+                    <?php if ($e): ?>
+                        <h2>Previous exceptions:</h2>
+
+                        <ul class="unstyled">
+                            <?php while($e): ?>
+                            <li>
+                                <p class="last"><strong><?php echo get_class($e); ?></strong></p>
+                                <dl>
+                                    <dt>File:</dt>
+                                    <dd>
+                                        <pre class="prettyprint linenums"><?php echo $e->getFile() ?>:<?php echo $e->getLine() ?></pre>
+                                    </dd>
+                                    <dt>Message:</dt>
+                                    <dd>
+                                        <pre class="prettyprint linenums"><?php echo $e->getMessage() ?></pre>
+                                    </dd>
+                                    <dt>Stack trace:</dt>
+                                    <dd>
+                                        <pre class="prettyprint linenums"><?php echo $e->getTraceAsString() ?></pre>
+                                    </dd>
+                                </dl>
+                            </li>
+                        <?php
+                                $e = $e->getPrevious();
+                            endwhile;
+                        ?>
+                        </ul>
+                    <?php endif; ?>
+
+                <?php endif ?>
+
+            <?php endif; ?>
+        <?php endif; ?>
+
+        </div>
+    </div>
+</main>
+<?php //endif; ?>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="module/Ed/Msn/tests/Bootstrap.php" colors="true">
+	<testsuites>
+		<testsuite name="ed/moneysavingnews">
+			<directory>./module/Ed/Msn/tests/EdTest/Msn</directory>
+		</testsuite>
+	</testsuites>
+	<filter>
+		<whitelist>
+			<directory>./module/Ed/Msn/src/</directory>
+		</whitelist>
+	</filter>
+</phpunit>

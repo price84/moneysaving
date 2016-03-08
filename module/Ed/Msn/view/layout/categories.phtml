@@ -1,0 +1,19 @@
+ <ul <?php if (isset($this->listClasses)): echo 'class="' . $this->listClasses . '"'; endif;?>>
+    <li<?php if (isset($this->activeCategory) && $this->activeCategory == 'competitions'): echo ' class="active"'; endif; ?>>
+        <a href="/competitions" title="Competitions">Competitions</a>
+    </li>
+<?php
+    foreach ($this->categories()->getAllCategories() as $category => $name):
+
+        $class = '';
+        if (isset($this->activeCategory) && $this->activeCategory == $category):
+            $class = 'class="active"';
+        endif;
+
+        echo '<li ' . $class .'>
+                <a href="' . $this->url('root/articles', ['category' => $category]) . '" title="' . $name . '">' . $name . '</a>
+            </li>';
+
+    endforeach;
+?>
+</ul>

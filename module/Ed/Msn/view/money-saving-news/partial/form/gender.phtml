@@ -1,0 +1,27 @@
+<form class="gender">
+    <h5>
+        <strong>Step 1:</strong> Select your gender below<br /><br />
+        <strong>Step 2:</strong> Get a free online quote from Protected.co.uk
+    </h5>
+    <fieldset>
+        <div class="row collapse">
+            <div class="small-12 medium-6 column">
+                <a href="<?php echo $this->referralLink()->createLink($this->trackingCode, $this->subId); ?>" rel="external" class="sex">
+                    <img src="../images/form/male.png">
+                </a>
+            </div>
+            <div class="small-12 medium-6 column">
+                <a href="<?php echo $this->referralLink()->createLink($this->trackingCode, $this->subId); ?>" rel="external"  class="sex">
+                    <img src="../images/form/female.png">
+                </a>
+            </div>
+        </div>
+        <div class="row collapse">
+            <div class="small-12 column text-center">
+                <a href="<?php echo $this->referralLink()->createLink($this->trackingCode, $this->subId); ?>" rel="external" class="button radius">
+                    Learn More &raquo;
+                </a>
+            </div>
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,62 @@
+<main class="article">
+    <div class="row">
+        <div class="large-12 show-for-large-up column text-right social-widgets">
+            <?php echo $this->partial('money-saving-news/partial/social-includes'); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 large-9 column">
+            <section class="article-content">
+                <h1>
+                    I bet you never knew this about Ginger!
+                </h1>
+                <?php echo $this->partial('money-saving-news/partial/article-author', ['articleDate' => $this->articleDate, 'articleLinkText' => $this->articleLinkText]); ?>
+                <p>
+                    Used in both sweet and savoury dishes, ginger is available throughout the world with India growing the most ginger root of any country.
+                </p>
+                <p class="image-source image-full-width">
+                    <img src="/images/article/i-bet-you-never-knew-this-about-ginger/1.jpg" alt="I bet you never knew this about Ginger!" />
+                    Image source: <a href="http://www.fitlista.com/11-health-benefits-ginger" rel="external">http://www.fitlista.com/11-health-benefits-ginger</a>
+                </p>
+                <h3>
+                    Easing an upset stomach
+                </h3>
+                <p>
+                    If you&rsquo;re feeling a little queasy, ginger has been known to help settle a stomach bug, indigestion any even morning sickness! Try adding some of the root to hot water with lemon slices and see how you feel.
+                </p>
+                <h3>
+                    Clear up that cold!
+                </h3>
+                <p>
+                    Ginger tea can help clear a throat and nose congestion. Its warming qualities will also heat you up on a cold day! 
+                </p>
+                <h3>
+                    Boost your side dishes
+                </h3>
+                <p>
+                    Stir chopped ginger and mixed herbs through cooked rice to instantly lift the flavour of the dish.
+                </p>
+                <h3>
+                    Reduce arthritic pain
+                </h3>
+                <p>
+                    Ginger can reduce the chemical substances that promote joint inflammation. Look for it in oil or capsule form to lessen pain from arthritis.
+                </p>
+            </section>
+            <?php echo $this->partial('money-saving-news/partial/more-to-explore'); ?>
+        </div>
+        <div class="small-12 large-3 column">
+            <div class="trending">
+                <?php echo $this->partial('money-saving-news/partial/trending'); ?>
+            </div>
+            <div class="row">
+                <div class="stocks-shares column small-12 medium-6 large-12">
+                    <?php echo $this->partial('money-saving-news/partial/stocks'); ?>
+                </div>
+                <div class="column small-12 medium-6 large-12">
+                    <?php echo $this->partial('money-saving-news/partial/banner/300x250', ['trackingCode' => $this->trackingCode, 'subId' => $this->subId]); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

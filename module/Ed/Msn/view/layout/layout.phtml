@@ -1,0 +1,73 @@
+<?php echo $this->doctype()."\n"; ?>
+<html lang="en">
+    <head>
+        <?php
+            // Page Title
+            echo $this->headTitle()->setAutoEscape(false) . "\n";
+
+            // MetaData
+            $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0');
+            $this->headMeta()->setCharset('utf-8');
+            echo $this->headMeta() . "\n";
+
+            // CSS
+            $this->headLink()->prependStylesheet($this->basePath() . '/css/msn.css', 'all', true, ['id' => 'css_msn']);
+            echo $this->headLink() . "\n";
+
+            // Javascript
+            $this->headScript()->prependFile($this->basePath() . '/js/libs/modernizr.custom.min.js');
+            echo $this->headScript() . "\n";
+
+            // Favicons
+            $iconSizes = [16, 32, 96, 160, 196];
+            foreach ($iconSizes as $iconSize):
+                echo '<link href="/favicon-'.$iconSize.'x'.$iconSize.'.png" rel="icon" type="image/png" sizes="'.$iconSize.'x'.$iconSize.'" />'."\n";
+            endforeach;
+
+            // Apple Touch Icons
+            $touchIcons = [57, 60, 72, 76, 114, 120, 144, 152];
+            foreach ($touchIcons as $touchIcon):
+                echo '<link href="/apple-touch-icon-'.$touchIcon.'x'.$touchIcon.'.png" rel="apple-touch-icon" sizes="'.$touchIcon.'x'.$touchIcon.'" />'."\n";
+            endforeach;
+        ?>
+    </head>
+    <body>
+    <?php
+        if (isset($this->isAdvertorial) && $this->isAdvertorial == true):
+            echo $this->partial('layout/advertorial');
+        endif;
+    ?>
+        <div class="off-canvas-wrap" data-offcanvas>
+            <div class="inner-wrap">
+                <?php
+                    if (!isset($this->offCanvasMenu)):
+                        $this->offCanvasMenu = 'layout/offcanvas-menu';
+                    endif;
+                ?>
+                <?php echo $this->partial($this->offCanvasMenu); ?>
+                <?php
+                    if (!isset($this->headerPath)):
+                        $this->headerPath = 'layout/header';
+                    endif;
+                ?>
+                <?php echo $this->partial($this->headerPath, ['trackingCode' => $this->trackingCode, 'subId' => $this->subId, 'activeCategory' => $this->activeCategory]); ?>
+                <?php echo $this->content; ?>
+                <?php
+                    if (!isset($this->footerPath)):
+                        $this->footerPath = 'layout/footer';
+                    endif;
+                ?>
+                <?php echo $this->partial($this->footerPath); ?>
+                <?php
+                    // Inline Javascript - prepend in reverse order so files load before any CSS added in the view files
+                    $this->inlineScript()->prependFile($this->basePath() . '/js/msn.min.js');
+                    echo $this->inlineScript() . "\n";
+                ?>
+                <div id="pixels">
+                    <?php echo $this->pixels()->toString(); ?>
+                </div>
+                <?php echo $this->tracking()->getReferralDataDisplay(); ?>
+            </div>
+        </div>
+    </body>
+</html>

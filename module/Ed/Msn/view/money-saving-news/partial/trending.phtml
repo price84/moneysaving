@@ -1,0 +1,15 @@
+<h3 class="speech blue">
+    TRENDING RIGHT NOW
+</h3>
+<ul class="content-list thumbnail-list">
+<?php
+    $count = (isset($this->articleCount)) ? $this->articleCount : 5;
+    foreach($this->articles()->getRandomArticles($count) as $url => $article):
+        echo '<li>
+                <a href="' . $this->url('root/article', ['article' => $url]) . '" title="'. $article['linkText'] .'">
+                    '. $this->articles()->thumbnail($url, $article) . $article['linkText'] . '
+                </a>
+            </li>';
+    endforeach;
+?>
+</ul>

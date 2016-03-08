@@ -1,0 +1,41 @@
+<form class="life-calculator">
+    <h2 class="text-center">
+        Life Insurance Calculator<br />
+        <small>Calculate the cost of life insurance</small>
+    </h2>
+    <fieldset>
+        <div class="row collapse">
+            <div class="small-12 medium-6 column">
+                <label for="age">
+                    How old are you?
+                </label>
+            </div>
+            <div class="small-12 medium-6 column">
+                <input type="number" name="age" id="age" />
+            </div>
+        </div>
+        <div class="row collapse">
+            <div class="small-12 medium-6 column">
+                <label for="amount">
+                    How much cover do you want? (&pound;)
+                </label>
+            </div>
+            <div class="small-12 medium-6 column">
+                <input type="number" name="amount" id="amount" value="100000" />
+            </div>
+            <div class="small-12 column show-for-medium-up">
+                <div class="range-slider round" data-slider data-options="display_selector: #amount; initial: 100000; step: 10000; start: 0; end: 200000">
+                    <span class="range-slider-handle" role="slider" tabindex="0"></span>
+                    <span class="range-slider-active-segment"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row collapse">
+            <div class="small-12 column text-center">
+                <a href="<?php echo $this->referralLink()->createLink($this->trackingCode, $this->subId); ?>" rel="external" class="button radius">
+                    CALCULATE
+                </a>
+            </div>
+        </div>
+    </fieldset>
+</form>

@@ -1,0 +1,17 @@
+<div class="more-to-explore">
+    <h3 class="speech dark-grey">
+        MORE TO EXPLORE
+    </h3>
+    <ul class="small-block-grid-2 medium-block-grid-4 text-center">
+    <?php
+        $count = (isset($this->articleCount)) ? $this->articleCount : 4;
+        foreach($this->articles()->getRandomArticles($count) as $url => $article):
+            echo '<li>
+                    <a href="' . $this->url('root/article', ['article' => $url]) . '" title="'. $article['linkText'] .'">
+                        '. $this->articles()->thumbnail($url, $article) . $article['linkText'] . '
+                    </a>
+                </li>';
+        endforeach;
+    ?>
+    </ul>
+</div>

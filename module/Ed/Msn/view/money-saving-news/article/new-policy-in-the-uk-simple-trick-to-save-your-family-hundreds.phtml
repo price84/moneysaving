@@ -1,0 +1,43 @@
+<main class="article">
+    <div class="row">
+        <div class="large-12 show-for-large-up column text-right social-widgets">
+            <?php echo $this->partial('money-saving-news/partial/social-includes'); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 large-9 column">
+            <section class="article-content">
+                <h1>
+                    New Policy in the UK: Simple Trick to Save Your Family Thousands
+                </h1>
+                <p class="right show-for-medium-up">
+                    <a href="<?php echo $this->referralLink()->createLink($this->trackingCode, $this->subId); ?>" rel="external">
+                    </a>
+                </p>
+                <?php echo $this->partial('money-saving-news/partial/articles/one'); ?>
+                <?php echo $this->partial('money-saving-news/partial/form/gender'); ?>
+                <?php echo $this->partial('money-saving-news/partial/articles/comments'); ?>
+                <?php echo $this->partial('money-saving-news/partial/advertorial-disclaimer'); ?>
+                <p class="disclaimers">
+                    * &pound;10 per month is based on a quote for a 40 year old non smoker looking at &pound;115,080 over 20 years with Legal &amp; General. Prices correct as of May 2015.
+                </p>
+                <p class="disclaimers">
+                    ** If we are unable to match the price within 30 days of your policy starting we will give you up to &pound;50 M&amp;S vouchers. Not all insurers show prices on their website.
+                </p>
+            </section>
+        </div>
+        <div class="small-12 large-3 column">
+            <div class="trending">
+                <?php echo $this->partial('money-saving-news/partial/trending'); ?>
+            </div>
+            <div class="row">
+                <div class="stocks-shares column small-12 medium-6 large-12">
+                    <?php echo $this->partial('money-saving-news/partial/stocks'); ?>
+                </div>
+                <div class="column small-12 medium-6 large-12">
+                    <?php echo $this->partial('money-saving-news/partial/banner/300x250', ['trackingCode' => $this->trackingCode, 'subId' => $this->subId]); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

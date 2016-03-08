@@ -1,0 +1,48 @@
+<main class="article">
+    <div class="row">
+        <div class="large-12 show-for-large-up column text-right social-widgets">
+            <?php echo $this->partial('money-saving-news/partial/social-includes'); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 large-9 column">
+            <section class="article-content">
+                <h1>
+                    <a href="<?php echo $this->referralLink()->createLink($this->trackingCode, $this->subId); ?>" rel="external">1 Simple Trick to Protect Your Family&rsquo;s Future</a>
+                </h1>
+                <p>
+                    <strong>Every 36 minutes in the UK a parent dies, leaving their family with no financial back up plan. Can you imagine how hard it is for the family left behind?</strong>
+                </p>
+                <h5>
+                    Advertorial
+                </h5>
+                <p>
+                    Unknown to many families, life insurance is one of the quickest, cheapest and easiest ways to protect your loved ones and their future. The truth is, it could easily help cover mortgage and child care costs as well as help secure a good education for your children and safeguard your loved ones from inheriting your debts. But with all of these great benefits, many people may think that the costs are high. The great news is that in today&rsquo;s market, policies are actually very inexpensive when you know where to look.
+                </p>
+                <p>
+                    When people visit <a href="<?php echo $this->referralLink()->createLink($this->trackingCode, $this->subId); ?>" rel="external">Protected.co.uk</a> to check life insurance quotes, many are shocked at the prices they see online. <a href="<?php echo $this->referralLink()->createLink($this->trackingCode, $this->subId); ?>" rel="external">Protected.co.uk</a> discounts every policy and stick to their guarantee that they can beat any price!
+                </p>
+                <p>
+                    By using the free online calculator on <a href="<?php echo $this->referralLink()->createLink($this->trackingCode, $this->subId); ?>" rel="external">Protected.co.uk</a>, you can see exactly how much cover you will need to provide for your family&rsquo;s future. Taking out the right amount of life insurance cover can help you achieve the best balance of protection for your family whilst ensuring your cover remains affordable.
+                </p>
+                <p>
+                    Using the life insurance calculator can help you understand and prioritise the things that matter most when it comes to protecting your family.
+                </p>
+                <p>
+                    With policies from as little as &pound;10 per month, you can safeguard your family&rsquo;s financial future.
+                </p>
+                <?php echo $this->partial('money-saving-news/partial/form/life-calculator'); ?>
+                <p class="disclaimers">
+                    * &pound;10 per month is based on a quote for a 40 year old non smoker looking at &pound;115,080 over 20 years with Legal &amp; General. Prices correct as of May 2015.
+                </p>
+                <?php echo $this->partial('money-saving-news/partial/advertorial-disclaimer'); ?>
+            </section>
+        </div>
+        <div class="small-12 medium-6 large-3 column banner">
+            <?php echo $this->partial('money-saving-news/partial/banner/300x600', ['trackingCode' => $this->trackingCode, 'subId' => $this->subId]); ?>
+        </div>
+        <div class="small-12 medium-6 large-3 column banner">
+            <?php echo $this->partial('money-saving-news/partial/banner/300x250', ['trackingCode' => $this->trackingCode, 'subId' => $this->subId]); ?>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,48 @@
+{
+	"name": "ed/moneysavingnews",
+	"description": "moneysavingnews.com",
+	"keywords": ["moneysavingnews"],
+	"homepage": "https://github.com/edgroup/moneysavingnews",
+	"license": "proprietary",
+	"repositories": [ { "type": "composer", "url": "http://packag.ed/" } ],
+	"require": {
+		"php": ">=5.5",
+		"zendframework/zendframework": "2.*",
+		"doctrine/doctrine-orm-module": "0.*",
+		"ed/log": "dev-syslog as dev-master",
+		"ed/common": "dev-master",
+		"ed/website": "dev-master",
+		"ed/products": "dev-master",
+		"ed/advertisers": "dev-master",
+		"ed/applications": "dev-master",
+		"ed/comparisons": "dev-master",
+		"ed/form": "dev-master",
+		"ed/hits": "dev-master",
+		"ed/partners": "dev-master",
+		"ed/submitted-client": "dev-master",
+		"ed/reported-client": "dev-master",
+		"ed/tracker": "dev-master",
+		"ed/data-filters": "dev-master",
+		"ed/auth": "dev-master",
+		"ed/mail": "dev-master",
+		"ed/pixels": "dev-master",
+		"ed/unsubscribes": "dev-master",
+		"ed/marketing-emails": "dev-master",
+		"ed/phone-service": "dev-master",
+		"ed/styled": "dev-master",
+		"ed/scripted": "dev-master",
+		"ed/wlp-test": "dev-master"
+	},
+	"require-dev": {
+		"zendframework/zend-developer-tools": "dev-master",
+		"ed/edcs": "dev-master",
+		"ed/testing": "dev-master",
+		"ed/database-schemas": "dev-master"
+	},
+	"scripts": {
+		"post-update-cmd": ["Ed\\Styled\\Bundle::install","Ed\\Scripted\\Bundle::install","Ed\\Tracker\\Bundle::install","Ed\\DataFilters\\Bundle::install"],
+		"post-install-cmd": ["Ed\\Styled\\Bundle::install","Ed\\Scripted\\Bundle::install","Ed\\Tracker\\Bundle::install","Ed\\DataFilters\\Bundle::install"]
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}

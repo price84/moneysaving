@@ -1,0 +1,9 @@
+{
+  "name": "foundation-libsass-template",
+  "devDependencies": {
+    "slick.js": "~1.5.5",
+    "fontawesome": "~4.3.0",
+    "mailcheck": "~1.1.0",
+    "foundation": "~5.5.3"
+  }
+}

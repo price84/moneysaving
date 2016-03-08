@@ -1,0 +1,101 @@
+<main class="home">
+    <div class="row">
+         <div class="small-12 large-3 column">
+            <p class="article-arrows">
+                <a class="article-left">&#9668;</a>
+                <a class="article-right">&#9658;</a>
+            </p>
+        </div>
+        <div class="large-9 column trending text-right social-widgets show-for-large-up">
+            <?php echo $this->partial('money-saving-news/partial/social-includes'); ?>
+        </div>
+    </div>
+    <div class="row" data-equalizer data-equalizer-mq="large-up">
+        <div class="small-12 large-9 column article-slider">
+            <div class="article-main"  data-equalizer-watch>
+            <?php
+                $articles = [
+                    '1-simple-trick-to-protect-your-family-for-10-per-month',
+                    'you-wont-believe-what-tigers-can-do',
+                    '15-very-rare-photos-from-the-past',
+                    '9-genius-life-hacks-you-didnt-know-you-needed',
+                ];
+
+                foreach ($articles as $article):
+                    $articleDetails = $this->articles()->articleDetails($article);
+            ?>
+                <div style="background-image: url('/images/article/<?php echo $article; ?>/homepage.jpg');">
+                    <div class="article-details">
+                        <div>
+                            <h4>
+                                <a href="<?php echo $this->url('root/article', ['article' => $article]); ?>" title="<?php echo $articleDetails['linkText']; ?>">
+                                    <?php echo $articleDetails['linkText']; ?>
+                                </a>
+                            </h4>
+                            <div class="row">
+                                <div class="small-6 column article-date">
+                                    <p>
+                                        <?php echo date('l j\<\s\u\p\>S\<\/\s\u\p\> F Y', strtotime($articleDetails['date']));?>
+                                    </p>
+                                </div>
+                                <div class="small-6 column text-right">
+                                    <a class="button small secondary" href="<?php echo $this->url('root/article', ['article' => $article]); ?>">READ MORE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php
+                endforeach;
+            ?>
+            </div>
+        </div>
+        <div class="small-12 large-3 column trending" data-equalizer-watch>
+            <?php echo $this->partial('money-saving-news/partial/trending'); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 large-6 column features">
+        <?php 
+            $features = [
+                '5-things-that-were-invented-by-accident',
+                'you-wont-believe-whats-inside-these-cakes'
+            ];
+
+            foreach ($features as $feature):
+                $featureDetails = $this->articles()->articleDetails($feature);
+        ?>
+            <h4>
+                <a href="<?php echo $this->url('root/article', ['article' => $feature]); ?>" title="<?php echo $featureDetails['linkText']; ?>">
+                    <img src="/images/article/<?php echo $feature; ?>/feature.jpg" />
+                    <?php echo $featureDetails['linkText']; ?>
+                </a>
+            </h4>
+        <?php
+            endforeach;
+        ?>
+        </div>
+        <div class="small-12 medium-6 large-3 column most-popular">
+            <h3 class="speech orange">
+                MOST POPULAR
+            </h3>
+            <ul class="content-list">
+            <?php
+                $count = 1;
+                foreach($this->articles()->getRandomArticles(10) as $url => $article):
+                    echo '<li>
+                            <a href="' . $this->url('root/article', ['article' => $url]) . '" title="'. $article['linkText'] .'">
+                                <span>' . $count .'</span>'. $this->articles()->shortenTitle($article['linkText']) . '
+                            </a>
+                        </li>';
+                    $count++;
+                endforeach;
+            ?>
+            </ul>
+        </div>
+        <div class="small-12 medium-6 large-3 column stocks-shares">
+            <?php echo $this->partial('money-saving-news/partial/stocks'); ?>
+            <?php echo $this->partial('money-saving-news/partial/banner/300x250', ['trackingCode' => $this->trackingCode, 'subId' => $this->subId]); ?>
+        </div>
+    </div>
+</main>

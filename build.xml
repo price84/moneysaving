@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="ed.moneysavingnews" default="build">
+
+ <target name="build"
+   depends="update-deps,prepare,lint,phpunit,phpcs"/>
+
+ <target name="clean" description="Cleanup build artifacts">
+  <delete dir="${basedir}/build/api"/>
+  <delete dir="${basedir}/build/code-browser"/>
+  <delete dir="${basedir}/build/coverage"/>
+  <delete dir="${basedir}/build/logs"/>
+  <delete dir="${basedir}/build/pdepend"/>
+ </target>
+
+ <target name="prepare" depends="clean"
+         description="Prepare for build">
+  <mkdir dir="${basedir}/build/api"/>
+  <mkdir dir="${basedir}/build/code-browser"/>
+  <mkdir dir="${basedir}/build/coverage"/>
+  <mkdir dir="${basedir}/build/logs"/>
+  <mkdir dir="${basedir}/build/pdepend"/>
+ </target>
+
+ <target name="update-deps" description="Install dependencies for project">
+  <echo>Composer install</echo>
+  <exec executable="/usr/local/bin/composer" failonerror="true">
+    <arg line="install" />
+  </exec>
+ </target>
+
+ <target name="lint">
+  <apply executable="php" failonerror="true">
+   <arg value="-l" />
+   <fileset dir="${basedir}/module/Ed/Msn/src">
+    <include name="**/*.php" />
+    <modified />
+   </fileset>
+   <fileset dir="${basedir}/module/Ed/Msn/tests">
+    <include name="**/*.php" />
+    <modified />
+   </fileset>
+  </apply>
+ </target>
+
+ <target name="phpunit" description="Run unit tests with PHPUnit">
+  <exec executable="./vendor/bin/phpunit" dir="${basedir}" failonerror="true">
+   <arg line="--log-junit ${basedir}/build/logs/junit.xml --coverage-clover ${basedir}/build/logs/clover.xml --coverage-html ${basedir}/build/report/coverage" />
+  </exec>
+ </target>
+
+ <target name="phpcs" description="Find coding standard violations using PHP_CodeSniffer">
+  <exec executable="./vendor/bin/phpcs">
+   <arg line="-p --report=checkstyle --report-file=${basedir}/build/logs/checkstyle.xml --standard=vendor/ed/edcs/ruleset.xml --extensions=php ${basedir}/module" />
+  </exec>
+ </target>
+
+</project>

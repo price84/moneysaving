@@ -1,0 +1,42 @@
+<?php
+
+return [
+    'doctrine' => [
+        'connection' => [
+            'orm_default' => [
+                'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
+                'params' => [
+                    'host' => 'dev.ed',
+                    'user' => 'usr.msn',
+                    'password' => 'VZTWLKcNV64y6fHW',
+                ],
+            ],
+        ],
+        'configuration' => [
+            'orm_default' => [
+                // You should only enable these on live, caching on dev is just silly ;)
+                'metadata_cache' => 'ed_doctrine_cache',
+                'query_cache' => 'ed_doctrine_cache',
+                'result_cache' => 'ed_doctrine_cache',
+                'hydration_cache' => 'ed_doctrine_cache',
+            ],
+        ],
+    ],
+    'edTracker' => [
+        'site' => 'moneysavingnews',
+    ],
+    'edWebserviceClient' => [
+        'auth' => [
+            'username' => null,
+            'password' => null,
+        ],
+        'sitemap' => [
+            'moneysavingnews' => 'http://moneysavingnews.james',
+            'mailed' => 'http://mailed.james',
+            'reported' => 'http://reported.james',
+        ],
+    ],
+    'additionalJavascript' => [
+        'common/form_autocomplete',
+    ],
+];

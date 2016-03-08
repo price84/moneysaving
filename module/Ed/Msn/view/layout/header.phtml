@@ -1,0 +1,32 @@
+<header>
+    <?php
+    /* To-do after launch
+    <section class="weather row show-for-large-up">
+        <p class="medium-12 text-right column">
+           <?php echo date('l j\<\s\u\p\>S\<\/\s\u\p\> F Y'); ?> <i class="fa fa-sun-o"></i> 15&deg;C Sunny <i class="fa fa-location-arrow north-east"></i> 15mph
+        </p>
+    </section>
+    */
+    ?>
+    <section class="row" data-equalizer data-equalizer-mq="medium">
+        <div class="small-12 medium-5 large-4 column" data-equalizer-watch>
+            <a class="logo" href="<?php echo $this->url('root'); ?>" title="Money Saving News">
+                <img src="/images/svg/logos/money-saving-news.svg" alt="Money saving news" data-fallback="/images/svg/logos/money-saving-news.png" />
+            </a>
+            <a class="right-off-canvas-toggle menu-icon show-for-small-only" href="#">
+            </a>
+        </div>
+        <div class="small-12 medium-7 large-8 banner column text-right" data-equalizer-watch>
+            <?php echo $this->partial('money-saving-news/partial/banner/728x90', ['trackingCode' => $this->trackingCode, 'subId' => $this->subId]); ?>
+        </div>
+    </section>
+<?php if (!$this->hideHeaderMenu): ?>
+    <div class="contain-to-grid">
+        <nav class="top-bar show-for-medium-up" data-topbar role="navigation">
+            <section class="top-bar-section">
+               <?php echo $this->partial('layout/categories', ['activeCategory' => $this->activeCategory]); ?>
+            </section>
+        </nav>
+    </div>
+<?php endif; ?>
+</header>

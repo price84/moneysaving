@@ -1,0 +1,42 @@
+<main class="article">
+    <div class="row">
+        <div class="large-12 show-for-large-up column text-right social-widgets">
+            <?php echo $this->partial('money-saving-news/partial/social-includes'); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 large-9 column">
+            <section class="article-index">
+            <?php
+                $articles = $this->articles()->articlesByCategory($this->category); 
+                if (count($articles) > 0):
+                    echo '<ul class="category-list small-block-grid-2 medium-block-grid-3 large-block-grid-4 text-center" data-equalizer>';
+                    foreach ($articles as $url => $article):
+                        echo '<li data-equalizer-watch>
+                                <a href="' . $this->url('root/article', ['article' => $url]) . '" title="'. $article['linkText'] .'">
+                                    '. $this->articles()->thumbnail($url, $article) . $article['linkText'] . '
+                                    <br />
+                                    <time datetime="'. date('Y-m-d', strtotime($article['date'])) . '">
+                                        ' . date('j\<\s\u\p\>S\<\/\s\u\p\> F Y', strtotime($article['date'])) . '
+                                    </time>
+                                </a>
+                             </li>';
+                    endforeach; 
+                    echo '</ul>';
+                else:
+                    echo '<p><a href="' . $this->url('root') . '" class="back-to-hp">&laquo; Back to homepage</a></p>';
+                endif;
+            ?>
+            </section>
+        </div>
+        <div class="small-12 large-3 column">
+            <div class="trending">
+                <?php echo $this->partial('money-saving-news/partial/trending'); ?>
+            </div>
+            <div class="stocks-shares">
+                <?php echo $this->partial('money-saving-news/partial/stocks'); ?>
+            </div>
+            <?php echo $this->partial('money-saving-news/partial/banner/300x250', ['trackingCode' => $this->trackingCode, 'subId' => $this->subId]); ?>
+        </div>
+    </div>
+</main>

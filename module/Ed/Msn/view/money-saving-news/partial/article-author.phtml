@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="small-12 medium-6 large-5 column">
+        <p class="author-pic">
+            <img src="/images/article/writers/susie-winters.jpg" alt="Susie Winters" />
+        </p>
+        <p class="author-name">
+            <strong>Susie Winters</strong>
+            <br />
+            News Reporter
+            <br /><br />
+            <?php echo date('l j\<\s\u\p\>S\<\/\s\u\p\> F Y', strtotime($this->articleDate));?>
+        </p>
+    </div>
+    <div class="small-12 medium-6 large-5 column end">
+        <ul class="inline-list social-circles">
+            <li>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $this->serverUrl(true); ?>" class="facebook" title="Share on Facebook" rel="external"></a>
+            </li>
+            <li>
+                <a href="https://twitter.com/intent/tweet?url=<?php echo $this->serverUrl(true); if (isset($this->articleLinkText) && $this->articleLinkText != ''): echo '&text=' . $this->articleLinkText; endif ?>" class="twitter" title="Share on Twitter"></a>
+            </li>
+            <li>
+                <a href="https://pinterest.com/pin/create/link/?url=<?php echo $this->serverUrl(true); ?>" class="pinterest" title="Share on Pinterest" rel="external"></a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<main class="article">
+    <div class="row">
+        <div class="large-12 show-for-large-up column text-right social-widgets">
+            <?php echo $this->partial('money-saving-news/partial/social-includes'); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="small-12 large-9 column">
+            <section class="article-content">
+                <h1>
+                    Change your life in a week &mdash; with coconut oil
+                </h1>
+                <?php echo $this->partial('money-saving-news/partial/article-author', ['articleDate' => $this->articleDate, 'articleLinkText' => $this->articleLinkText]); ?>
+                <h3>
+                    Cooking
+                </h3>
+                <p>
+                    Coconut oil gives subtle flavour to any dish – curries, roasted veggies, smoothies, ice cream and cakes. It&rsquo;s the perfect alternative to butter or oil in any recipe! Available in refined or unrefined form, have fun playing with flavour combinations in your everyday cooking!
+                </p>
+                <h3>
+                    Exfoliation
+                </h3>
+                <p>
+                    Mix a few tablespoons of raw coconut oil with sugar and you&rsquo;ve got an instant exfoliator! Use on problem areas, like elbows and knees, for beautiful results.
+                </p>
+                <h3>
+                    Hair conditioner
+                </h3>
+                <p>
+                    Give your locks a refresh with a deep condition. Heat some water, and some coconut oil and use like a normal conditioner – sweet smelling and hydrating! 
+                </p>
+                <p class="image-source image-full-width">
+                    <img src="/images/article/change-your-life-in-a-week-with-coconut-oil/1.jpg" alt="Coconut oil" />
+                    Image source: <a href="http://higherperspective.com/2014/11/diy-coconut-conditioner.html" rel="external">http://higherperspective.com/2014/11/diy-coconut-conditioner.html</a>
+                </p>
+                <h3>
+                    Moisturiser
+                </h3>
+                <p>
+                    Mix a few drops of coconut oil with your favourite (unscented) body lotion. Apply it all over your body after exfoliating for an extra treat.
+                </p>
+                <h3>
+                    Sunburn relief
+                </h3>
+                <p>
+                    Use your home made moisturise as soothing relief for mild sun burn – and you&rsquo;ll smell like a tropical island!
+                </p>
+                <h3>
+                    Lower cholesterol
+                </h3>
+                <p>
+                    Coconut oil is over 40% lauric acid, and studies have shown that this can lower cholesterol and blood pressure, as well as increasing bone strength and fighting infection due to its antibacterial properties!
+                </p>
+            </section>
+            <?php echo $this->partial('money-saving-news/partial/more-to-explore'); ?>
+        </div>
+        <div class="small-12 large-3 column">
+            <div class="trending">
+                <?php echo $this->partial('money-saving-news/partial/trending'); ?>
+            </div>
+            <div class="row">
+                <div class="stocks-shares column small-12 medium-6 large-12">
+                    <?php echo $this->partial('money-saving-news/partial/stocks'); ?>
+                </div>
+                <div class="column small-12 medium-6 large-12">
+                    <?php echo $this->partial('money-saving-news/partial/banner/300x250', ['trackingCode' => $this->trackingCode, 'subId' => $this->subId]); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
